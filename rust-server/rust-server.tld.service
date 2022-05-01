@@ -1,0 +1,11 @@
+[Unit]
+Description=Rust Rocket Web Application Example from steadylearner[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/home/yourname/yourwebsite/yourproject/
+Environment="ROCKET_ENV=prod"
+Environment="ROCKET_ADDRESS=0.0.0.0"
+Environment="ROCKET_PORT=8000"
+Environment="ROCKET_LOG=critical"
+ExecStart=/home/yourname/yourwebsite/yourproject/target/release/yourproject[Install]
+WantedBy=multi-user.target
