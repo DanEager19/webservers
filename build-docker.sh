@@ -6,4 +6,3 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 chmod a+r /etc/apt/keyrings/docker.gpg
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
-docker compose up --build -d
