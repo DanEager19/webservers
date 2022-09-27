@@ -27,7 +27,7 @@ const routes = require('./routes/routes');
 routes(app);
 
 app.get('/', (req, res) => {
-    res.json({message: 'Please secure me... UWU'})
+    res.json({message: 'Please secure this HTTP server.'})
 });
 
 app.listen(port, () => {
