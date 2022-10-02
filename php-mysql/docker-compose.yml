@@ -35,6 +35,7 @@ services:
     restart: always
     environment:
       PMA_HOST: mysql
+      UPLOAD_LIMIT: 300M
     depends_on:
       - mysql
     networks:
