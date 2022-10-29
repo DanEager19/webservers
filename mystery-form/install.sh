@@ -2,13 +2,12 @@
 
 apt-get install -y python3 python3-pip python3-flask nginx systemd
 
+rm -rf /var/www/application
 mkdir /var/www/application
 cp -r ./* /var/www/application 
 chown -R www-data:www-data /var/www/application/
 
-export FLASK_APP=/var/www/application/app.py
-
-echo 'flask run --host=0.0.0.0 &' >> /etc/profile
+echo 'FLASK_APP=/var/www/application/app.py' >> /etc/profile
 
 cat >> /etc/nginx/nginx.conf << EOF
 server {
