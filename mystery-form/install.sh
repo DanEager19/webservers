@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y python3 python3-pip python3-flask nginx
+apt-get install -y python3 python3-pip python3-flask nginx systemd
 
 mkdir /var/www/application
 cp -r ./* /var/www/application 
@@ -24,4 +24,20 @@ server {
 }
 EOF
 
+cat >> /etc/systemd/systen/flask.service << EOF
+[Unit]
+Description=Flask server
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=flask run --host=0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl daemon-reload
 systemctl enable nginx && systemctl start nginx
+systemctl enable flask.services && systemctl start flask.service
