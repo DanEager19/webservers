@@ -24,7 +24,7 @@ server {
 }
 EOF
 
-cat >> /etc/systemd/systen/flask.service << EOF
+cat >> /etc/systemd/system/mystery-form.service << EOF
 [Unit]
 Description=Flask server
 After=multi-user.target
@@ -40,4 +40,4 @@ EOF
 
 systemctl daemon-reload
 systemctl enable nginx && systemctl start nginx
-systemctl enable flask.services && systemctl start flask.service
+systemctl enable mystery-form.service && systemctl start mystery-form.service
