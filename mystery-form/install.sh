@@ -10,7 +10,7 @@ export FLASK_APP=/var/www/application/app.py
 
 echo 'flask run --host=0.0.0.0 &' >> /etc/profile
 
-cat >> /etc/nginx.conf << EOF
+cat >> /etc/nginx/nginx.conf << EOF
 server {
     listen 80;
     server_name _;
